@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOCATION COVID-19 INFORMATION</title>
+    </head>
+    <div class="container">
+        <body>
+            {% extends "base.html" %}
+            {% block content %}
+            <img src="/static/images/{{flag_file_name}}_flag.png" style="display:inline;" class="img-thumbnail" width="100" height="100"/>
+            <h1>{{locationName}} COVID-19 DATA</h1>
+            
+            <div class="container">
+                <table class="table table-striped table-hover table-bordered">
+                    <tbody>
+                        <tr class="table-danger">
+                            <th>TOTAL COVID-19 STATSITICS</th>
+                            <td>    </td>
+                        </tr>
+                        {% for item in display_info %}
+                            <tr>
+                                <th>{{ item }}</th>
+                                <td>{{ "{:,}".format(display_info[item] | int ) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>      
+            {% endblock %}
+        </body>
+    </div>
+</html>
